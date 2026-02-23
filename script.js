@@ -8,7 +8,7 @@ const rejectedFilterBtn = document.getElementById("rejected-filter-btn")
 
 const allFilter = document.getElementById("all-filter-btn");
 allFilter.addEventListener('click', function () {
-
+currentFilter = "All"; 
   allFilterBtn.classList.add("bg-blue-600");
 
   interviewFilterBtn.classList.add("bg-black/50");
@@ -19,12 +19,15 @@ allFilter.addEventListener('click', function () {
 
 
   allApplicationSection.classList.remove("hidden")
-calculateCount()
+  filteredSection.classList.add("hidden")
+  calculateCount()
+  
 });
 
 const interviewFilter = document.getElementById("interview-filter-btn");
 interviewFilter.addEventListener('click', function () {
 
+  currentFilter = "Interview";
   interviewFilterBtn.classList.add("bg-blue-600");
   interviewFilterBtn.classList.remove("bg-black/50");
 
@@ -43,7 +46,7 @@ interviewFilter.addEventListener('click', function () {
 
 const rejectedFilter = document.getElementById("rejected-filter-btn");
 rejectedFilter.addEventListener('click', function () {
-
+ currentFilter = "Rejected";
   rejectedFilterBtn.classList.add("bg-blue-600");
   rejectedFilterBtn.classList.remove("bg-black/50");
 
@@ -64,11 +67,13 @@ allApplicationSection.classList.add("hidden")
 
 let interviewList = [];
 let rejectedList = [];
-
+let currentFilter = "All";
 
 let total = document.getElementById("totalCount");
 let interview = document.getElementById("interviewCount");
 let rejected = document.getElementById("rejectedCount");
+
+let summary = document.getElementById("applicationSummary");
 
 const allApplicationSection = document.getElementById("allApplications")
 
@@ -77,6 +82,26 @@ function calculateCount() {
   total.innerText = allApplicationSection.children.length 
   interview.innerText = interviewList.length
   rejected.innerText = rejectedList.length 
+
+const totalCount = allApplicationSection.children.length
+  const interviewCount = interviewList.length
+  const rejectedCount = rejectedList.length
+
+  total.innerText = totalCount
+  interview.innerText = interviewCount
+  rejected.innerText = rejectedCount
+
+  if (currentFilter === "All") {
+    summary.innerText = totalCount
+  }
+
+ else if (currentFilter === "Interview") {
+  summary.innerText = `${interviewCount} of ${totalCount}`
+}
+ else if (currentFilter === "Rejected") {
+    summary.innerText = `${rejectedCount} of ${totalCount}`
+  }
+
 } 
 calculateCount()
 
@@ -107,15 +132,19 @@ mainContainer.addEventListener("click", function (event) {
     
     
     const applicationsExist = interviewList.find(item => item.jobTitle == cardInfo.jobTitle)
-    
+   
+  
   if (!applicationsExist) {
     interviewList.push(cardInfo)
     }
+    
+  
     calculateCount()
     renderInterview()
     parentNode.remove(); 
   }
 
+  
   else if (event.target.classList.contains("rejected-btn")) {
      const parentNode = event.target.parentNode.parentNode.parentNode;
   const jobTitle = parentNode.querySelector(".jobTitle").innerText;
@@ -138,14 +167,14 @@ mainContainer.addEventListener("click", function (event) {
     }
 
 
-    
-
+     
     const applicationsExist = rejectedList.find(item => item.jobTitle == jobTitle) 
 
     if (!applicationsExist) {
       rejectedList.push(cardInfo)
     }
 
+ 
     calculateCount()
     renderRejected()
     parentNode.remove();
