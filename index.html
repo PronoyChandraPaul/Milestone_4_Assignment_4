@@ -42,23 +42,31 @@
     </div>
 
     <div class="flex gap-3 mt-4 ">
-      <button class="bg-blue-600 text-white p-2 px-10 rounded-2xl"
-        id="all-filter-btn">All</button>
+      <button class="bg-blue-600 text-white p-2 px-10 rounded-2xl" id="all-filter-btn">All</button>
       <button class="bg-black/50 text-white p-2 px-6 opacity-90 rounded-2xl"
         id="interview-filter-btn">Interview</button>
       <button class="bg-black/50 text-white p-2 px-6 opacity-90 rounded-2xl" id="rejected-filter-btn">Rejected</button>
 
     </div>
 
+    <!-- Filtered Card  -->
+
+    <section id="filteredSection" class="hidden mt-6">
+
+
+    </section>
+
+
     <section id="allApplications" class="mt-4">
       <!-- Applicaion 1  -->
       <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl">
         <div class="text-white space-y-6 ">
-          <h1 class="text-2xl font-bold ">Mobile First Corp</h1>
-          <p class="opacity-80">React Native Developer</p>
-          <p class="opacity-80">Remote <span> • </span> Full-time <span> • </span>$130,000 - $175,000</p>
-          <p id="status" class="mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
-          <p class="opacity-80">Build cross-platform mobile applications using React Native. Work on products used by
+          <h1 class="jobTitle text-2xl font-bold ">Mobile First Corp</h1>
+          <p class="jobType opacity-80">React Native Developer</p>
+          <p class="workType opacity-80">Remote <span> • </span> Full-time <span> • </span>$130,000 - $175,000</p>
+          <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
+          <p class="jobDescription opacity-80">Build cross-platform mobile applications using React Native. Work on
+            products used by
             millions worldwide.</p>
           <div class="flex gap-6">
             <button
@@ -67,7 +75,7 @@
               class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
           </div>
         </div>
-        <div id="delete-btn" class="text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+        <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
           <i class="fa-regular fa-trash-can"></i>
         </div>
       </div>
@@ -75,11 +83,12 @@
       <!-- Applicaion 2  -->
       <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
         <div class="text-white space-y-6 ">
-          <h1 class="text-2xl font-bold ">TechNova Solutions</h1>
-          <p class="opacity-80">Frontend Developer</p>
-          <p class="opacity-80">New York, USA <span> • </span> Full-time <span> • </span>$90,000 - $120,000</p>
-          <p id="status" class="mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
-          <p class="opacity-80">Develop modern user interfaces using HTML, CSS, JavaScript, and React.</p>
+          <h1 class="jobTitle text-2xl font-bold ">TechNova Solutions</h1>
+          <p class="jobType opacity-80">Frontend Developer</p>
+          <p class="workType opacity-80">New York, USA <span> • </span> Full-time <span> • </span>$90,000 - $120,000</p>
+          <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
+          <p class="jobDescription opacity-80">Develop modern user interfaces using HTML, CSS, JavaScript, and React.
+          </p>
           <div class="flex gap-6">
             <button
               class="interview-btn border-2 p-2 px-4 font-bold text-green-500 border-emerald-400 transition-all duration-100 hover:scale-105 ">INTERVIEW</button>
@@ -87,18 +96,20 @@
               class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
           </div>
         </div>
-        <div class="text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+        <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
           <i class="fa-regular fa-trash-can"></i>
         </div>
       </div>
+
       <!-- Applicaion 3  -->
       <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
         <div class="text-white space-y-6 ">
-          <h1 class="text-2xl font-bold ">CloudSync Ltd</h1>
-          <p class="opacity-80">Backend Engineer</p>
-          <p class="opacity-80">London, UK <span> • </span> Part-time <span> • </span>$80,000 - $110,000</p>
-          <p id="status" class="mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
-          <p class="opacity-80">Design APIs, manage databases, and maintain server logic using Node.js.</p>
+          <h1 class="jobTitle text-2xl font-bold ">AI Labs</h1>
+          <p class="jobType opacity-80">Machine Learning Engineer</p>
+          <p class="workType opacity-80">Toronto, Canada <span> • </span> Full-time <span> • </span>$120,000 - $240,000</p>
+          <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
+          <p class="jobDescription opacity-80">Build and optimize machine learning models for real-world solutions.
+          </p>
           <div class="flex gap-6">
             <button
               class="interview-btn border-2 p-2 px-4 font-bold text-green-500 border-emerald-400 transition-all duration-100 hover:scale-105 ">INTERVIEW</button>
@@ -106,18 +117,19 @@
               class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
           </div>
         </div>
-        <div class="text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+        <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
           <i class="fa-regular fa-trash-can"></i>
         </div>
       </div>
       <!-- Applicaion 4  -->
       <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
         <div class="text-white space-y-6 ">
-          <h1 class="text-2xl font-bold ">CyberSecure Inc</h1>
-          <p class="opacity-80">Security Analyst</p>
-          <p class="opacity-80">Remote <span> • </span> Full-time <span> • </span>$190,000 - $320,000</p>
-          <p id="status" class="mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
-          <p class="opacity-80">Monitor threats, test vulnerabilities, and protect system infrastructure.</p>
+          <h1 class="jobTitle text-2xl font-bold ">DataWave Systems</h1>
+          <p class="jobType opacity-80">Data Analyst</p>
+          <p class="workType opacity-80">Sydney, Australia <span> • </span> Full-time <span> • </span>$70,000 - $140,000</p>
+          <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
+          <p class="jobDescription opacity-80">BAnalyze datasets and generate insights to support business decisions.
+          </p>
           <div class="flex gap-6">
             <button
               class="interview-btn border-2 p-2 px-4 font-bold text-green-500 border-emerald-400 transition-all duration-100 hover:scale-105 ">INTERVIEW</button>
@@ -125,18 +137,20 @@
               class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
           </div>
         </div>
-        <div class="text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+        <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
           <i class="fa-regular fa-trash-can"></i>
         </div>
       </div>
+     
       <!-- Applicaion 5  -->
       <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
         <div class="text-white space-y-6 ">
-          <h1 class="text-2xl font-bold ">AI Labs</h1>
-          <p class="opacity-80">Machine Learning Engineer</p>
-          <p class="opacity-80">Toronto, Canada <span> • </span> Full-time <span> • </span>$120,000 - $240,000</p>
-          <p id="status" class="mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
-          <p class="opacity-80">Build and optimize machine learning models for real-world solutions.</p>
+          <h1 class="jobTitle text-2xl font-bold ">DesignPro Studio</h1>
+          <p class="jobType opacity-80">UI/UX Designer</p>
+          <p class="workType opacity-80">Berlin, Germany <span> • </span> Full-time <span> • </span>$60,000 - $120,000</p>
+          <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
+          <p class="jobDescription opacity-80">Create intuitive designs and improve user experience across platforms.
+          </p>
           <div class="flex gap-6">
             <button
               class="interview-btn border-2 p-2 px-4 font-bold text-green-500 border-emerald-400 transition-all duration-100 hover:scale-105 ">INTERVIEW</button>
@@ -144,37 +158,39 @@
               class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
           </div>
         </div>
-        <div class="text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+        <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
           <i class="fa-regular fa-trash-can"></i>
         </div>
       </div>
       <!-- Applicaion 6  -->
-      <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
-        <div class="text-white space-y-6 ">
-          <h1 class="text-2xl font-bold ">DataWave Systems</h1>
-          <p class="opacity-80">Data Analyst</p>
-          <p class="opacity-80">Sydney, Australia <span> • </span> Full-time <span> • </span>$70,000 - $140,000</p>
-          <p id="status" class="mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
-          <p class="opacity-80">Analyze datasets and generate insights to support business decisions.</p>
-          <div class="flex gap-6">
-            <button
-              class="interview-btn border-2 p-2 px-4 font-bold text-green-500 border-emerald-400 transition-all duration-100 hover:scale-105 ">INTERVIEW</button>
-            <button
-              class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
-          </div>
-        </div>
-        <div class="text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
-          <i class="fa-regular fa-trash-can"></i>
+    <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
+      <div class="text-white space-y-6 ">
+        <h1 class="jobTitle text-2xl font-bold ">NextGen Games</h1>
+        <p class="jobType opacity-80">Game Developer</p>
+        <p class="workType opacity-80">Tokyo, Japan <span> • </span> Full-time <span> • </span>$90,000 - $120,000</p>
+        <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
+        <p class="jobDescription opacity-80">Develop interactive games using modern engines and collaborate with creative teams.
+        </p>
+        <div class="flex gap-6">
+          <button
+            class="interview-btn border-2 p-2 px-4 font-bold text-green-500 border-emerald-400 transition-all duration-100 hover:scale-105 ">INTERVIEW</button>
+          <button
+            class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
         </div>
       </div>
+      <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+        <i class="fa-regular fa-trash-can"></i>
+      </div>
+    </div>
       <!-- Applicaion 7  -->
       <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
         <div class="text-white space-y-6 ">
-          <h1 class="text-2xl font-bold ">DesignPro Studio</h1>
-          <p class="opacity-80">UI/UX Designer</p>
-          <p class="opacity-80">Berlin, Germany <span> • </span> Full-time <span> • </span>$60,000 - $120,000</p>
-          <p id="status" class="mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
-          <p class="opacity-80">Create intuitive designs and improve user experience across platforms.</p>
+          <h1 class="jobTitle text-2xl font-bold ">CloudSync Ltd</h1>
+          <p class="jobType opacity-80">Backend Engineer</p>
+          <p class="workType opacity-80">London, UK <span> • </span> Full-time <span> • </span>$80,000 – $110,000</p>
+          <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
+          <p class="jobDescription opacity-80">Design APIs, manage databases, and maintain server logic using Node.js.
+          </p>
           <div class="flex gap-6">
             <button
               class="interview-btn border-2 p-2 px-4 font-bold text-green-500 border-emerald-400 transition-all duration-100 hover:scale-105 ">INTERVIEW</button>
@@ -182,30 +198,31 @@
               class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
           </div>
         </div>
-        <div class="text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+        <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
           <i class="fa-regular fa-trash-can"></i>
         </div>
       </div>
       <!-- Applicaion 8  -->
-      <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
-        <div class="text-white space-y-6 ">
-          <h1 class="text-2xl font-bold ">NextGen Games</h1>
-          <p class="opacity-80">Game Developer</p>
-          <p class="opacity-80">Tokyo, Japan <span> • </span> Full-time <span> • </span>$90,000 - $120,000</p>
-          <p id="status" class="mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
-          <p class="opacity-80">Develop interactive games using modern engines and collaborate with creative teams.</p>
-          <div class="flex gap-6">
-            <button
-              class="interview-btn border-2 p-2 px-4 font-bold text-green-500 border-emerald-400 transition-all duration-100 hover:scale-105 ">INTERVIEW</button>
-            <button
-              class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
-          </div>
-        </div>
-        <div class="text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
-          <i class="fa-regular fa-trash-can"></i>
-        </div>
-      </div>
-
+     
+<div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
+  <div class="text-white space-y-6 ">
+    <h1 class="jobTitle text-2xl font-bold ">CyberSecure Inc</h1>
+    <p class="jobType opacity-80">Security Analyst</p>
+    <p class="workType opacity-80">Remote <span> • </span> Full-time <span> • </span>$90,000 - $120,000</p>
+    <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">NOT APPLIED</p>
+    <p class="jobDescription opacity-80">Monitor threats, test vulnerabilities, and protect system infrastructure.
+    </p>
+    <div class="flex gap-6">
+      <button
+        class="interview-btn border-2 p-2 px-4 font-bold text-green-500 border-emerald-400 transition-all duration-100 hover:scale-105 ">INTERVIEW</button>
+      <button
+        class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
+    </div>
+  </div>
+  <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+    <i class="fa-regular fa-trash-can"></i>
+  </div>
+</div>
     </section>
 
   </main>
