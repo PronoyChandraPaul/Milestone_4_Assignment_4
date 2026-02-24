@@ -86,6 +86,8 @@ function calculateCount() {
 const totalCount = allApplicationSection.children.length
   const interviewCount = interviewList.length
   const rejectedCount = rejectedList.length
+  
+
 
   total.innerText = totalCount
   interview.innerText = interviewCount
@@ -108,76 +110,92 @@ calculateCount()
 
 
 mainContainer.addEventListener("click", function (event) {
-  console.log(event.target.classList.contains("interview-btn"));
-  if (event.target.classList.contains("interview-btn")) {
-     const parentNode = event.target.parentNode.parentNode.parentNode;
+ 
+if (event.target.classList.contains("interview-btn")) {
+
+  const parentNode = event.target.closest(".shadow-xl");
   const jobTitle = parentNode.querySelector(".jobTitle").innerText;
+
   const jobType = parentNode.querySelector(".jobType").innerText;
   const workType = parentNode.querySelector(".workType").innerText;
-  const status = parentNode.querySelector(".status").innerText;
   const jobDescription = parentNode.querySelector(".jobDescription").innerText;
-  const deleteBtn = parentNode.querySelector(".deleteBtn").innerText;
-    parentNode.querySelector(".status").innerText = "Applied"
-   
 
+  rejectedList = rejectedList.filter(item => item.jobTitle !== jobTitle);
 
-  const cardInfo = {
-    jobTitle,
-    jobType,
-    workType,
-    status:"Applied",
-    jobDescription,
-    deleteBtn
-    }
-    
-    
-    const applicationsExist = interviewList.find(item => item.jobTitle == cardInfo.jobTitle)
-   
-  
-  if (!applicationsExist) {
-    interviewList.push(cardInfo)
-    }
-    
-  
-    calculateCount()
-    renderInterview()
-    parentNode.remove(); 
+  const exists = interviewList.find(item => item.jobTitle === jobTitle);
+
+  if (!exists) {
+    interviewList.push({
+      jobTitle,
+      jobType,
+      workType,
+      status: "Interview",
+      jobDescription
+    });
   }
 
-  
-  else if (event.target.classList.contains("rejected-btn")) {
-     const parentNode = event.target.parentNode.parentNode.parentNode;
+  parentNode.querySelector(".status").innerText = "Interview";
+
+  if (currentFilter !== "All") {
+    renderInterview();
+  }
+
+  calculateCount();
+}
+
+ else if (event.target.classList.contains("rejected-btn")) {
+
+  const parentNode = event.target.closest(".shadow-xl");
   const jobTitle = parentNode.querySelector(".jobTitle").innerText;
+
   const jobType = parentNode.querySelector(".jobType").innerText;
   const workType = parentNode.querySelector(".workType").innerText;
-  const status = parentNode.querySelector(".status").innerText;
   const jobDescription = parentNode.querySelector(".jobDescription").innerText;
-  const deleteBtn = parentNode.querySelector(".deleteBtn").innerText;
-    parentNode.querySelector(".status").innerText = "Rejected"
 
-    
 
-  const cardInfo = {
-    jobTitle,
-    jobType,
-    workType,
-    status:'Rejected',
-    jobDescription,
-    deleteBtn
+  interviewList = interviewList.filter(item => item.jobTitle !== jobTitle);
+
+  const exists = rejectedList.find(item => item.jobTitle === jobTitle);
+
+  if (!exists) {
+    rejectedList.push({
+      jobTitle,
+      jobType,
+      workType,
+      status: "Rejected",
+      jobDescription
+    });
+  }
+
+  parentNode.querySelector(".status").innerText = "Rejected";
+
+  if (currentFilter !== "All") {
+    renderRejected();
+  }
+
+  calculateCount();
+}
+
+   else if (event.target.closest(".deleteBtn")) {
+
+    const parentNode = event.target.closest(".shadow-xl");
+    const jobTitle = parentNode.querySelector(".jobTitle").innerText;
+
+    if (currentFilter === "Interview") {
+      interviewList = interviewList.filter(item => item.jobTitle !== jobTitle);
+      renderInterview();
     }
 
-
-     
-    const applicationsExist = rejectedList.find(item => item.jobTitle == jobTitle) 
-
-    if (!applicationsExist) {
-      rejectedList.push(cardInfo)
+    else if (currentFilter === "Rejected") {
+      rejectedList = rejectedList.filter(item => item.jobTitle !== jobTitle);
+      renderRejected();
     }
 
- 
-    calculateCount()
-    renderRejected()
-    parentNode.remove();
+    else {
+      parentNode.remove();
+    }
+
+    calculateCount();
   }
 })
 
