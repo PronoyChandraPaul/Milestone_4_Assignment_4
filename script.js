@@ -129,12 +129,12 @@ if (event.target.classList.contains("interview-btn")) {
       jobTitle,
       jobType,
       workType,
-      status: "Interview",
+      status: "Applied",
       jobDescription
     });
   }
 
-  parentNode.querySelector(".status").innerText = "Interview";
+  parentNode.querySelector(".status").innerText = "Applied";
 
   if (currentFilter !== "All") {
     renderInterview();
@@ -200,9 +200,25 @@ if (event.target.classList.contains("interview-btn")) {
 })
 
 const filterSection = document.getElementById("filteredSection");
+function getEmptyMessage() {
+  return `
+    <div class="flex flex-col items-center justify-center py-20 opacity-60">
+        <div class="text-7xl text-blue-400 mb-4">
+            <i class="fa-regular fa-file-lines"></i> 
+        </div>
+        <h2 class="text-2xl font-bold text-white">No jobs available</h2>
+        <p class="text-white mt-2">Check back soon for new job opportunities</p>
+    </div>
+  `;
+}
 
 function renderInterview() {
-filterSection.innerHTML = ""
+
+  filterSection.innerHTML = ""
+  if (interviewList.length === 0) {
+    filterSection.innerHTML = getEmptyMessage();
+    return;
+  }
   for (let render of interviewList) {
     let div = document.createElement("div");
     div.className ="flex justify-between border-3 p-8 rounded-2xl shadow-xl"
@@ -229,6 +245,10 @@ filterSection.innerHTML = ""
 
 function renderRejected() {
   filterSection.innerHTML = ""
+  if (rejectedList.length === 0) {
+    filterSection.innerHTML = getEmptyMessage();
+    return;
+  }
   for (let reject of rejectedList) {
     
     let div = document.createElement("div");
