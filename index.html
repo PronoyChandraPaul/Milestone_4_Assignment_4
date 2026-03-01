@@ -12,10 +12,10 @@
 </head>
 
 <body class="bg-black/90">
-  <header class="w-[95%] md:w-[80%] mx-auto mt-5">
+  <header class="w-full max-w-7xl mx-auto mt-5 px-4 sm:px-6 lg:px-8">
     <h1 class="text-4xl md:text-6xl font-bold text-blue-900 text-center md:text-left">Job Application Tracker</h1>
   
-    <div class="grid grid-cols-1 md:grid-cols-3 mt-6 gap-4 md:gap-6 font-medium">
+    <div class="grid grid-cols-1 sm:grid-cols-3 mt-6 gap-4 sm:gap-6 font-medium">
       <div class="rounded-2xl p-4 shadow-xl bg-black/50">
         <h6 class="text-white text-sm md:text-base">Total</h6>
         <p id="totalCount" class="text-2xl md:text-3xl font-bold text-white">0</p>
@@ -33,7 +33,7 @@
   
   <hr class="my-5 opacity-20">
   
-  <main class="w-[95%] md:w-[80%] mx-auto">
+  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row justify-between items-center gap-4">
       <h1 class="text-2xl md:text-3xl font-bold text-white text-center md:text-left">Available Jobs</h1>
       <div class="flex gap-2 font-bold text-xl md:text-2xl text-white">
@@ -42,13 +42,14 @@
       </div>
     </div>
   
-    <div class="flex flex-wrap gap-3 mt-6 justify-center md:justify-start">
-      <button class="bg-blue-600 text-white p-2 px-6 md:px-10 rounded-2xl cursor-pointer" id="all-filter-btn">All</button>
-      <button class="bg-black/50 text-white p-2 px-6 rounded-2xl opacity-90 cursor-pointer"
-        id="interview-filter-btn">Interview</button>
-      <button class="bg-black/50 text-white p-2 px-6 rounded-2xl opacity-90 cursor-pointer"
-        id="rejected-filter-btn">Rejected</button>
-    </div>
+  <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 mt-4">
+    <button class="bg-blue-600 text-white py-2 px-6 sm:px-10 rounded-2xl" id="all-filter-btn">All</button>
+    <button class="bg-black/50 text-white py-2 px-6 sm:px-8 opacity-90 rounded-2xl"
+      id="interview-filter-btn">Interview</button>
+    <button class="bg-black/50 text-white py-2 px-6 sm:px-8 opacity-90 rounded-2xl"
+      id="rejected-filter-btn">Rejected</button>
+  </div>
+
     <!-- Filtered Card  -->
 
     <section id="filteredSection" class="hidden mt-6">
@@ -59,12 +60,12 @@
 
     <section id="allApplications" class="mt-4">
       <!-- Applicaion 1  -->
-      <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl">
-        <div class="text-white space-y-6 line-clamp-8 md:line-clamp-5">
-          <h1 class="jobTitle text-2xl font-bold ">Mobile First Corp</h1>
-          <p class="jobType opacity-80">React Native Developer</p>
-          <p class="workType opacity-80">Remote <span> • </span> Full-time <span> • </span>$130,000 - $175,000</p>
-          <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md sm:mr-100 lg:mr-160  md:p-1 md:py-1 md:mr-90">NOT APPLIED</p>
+      <div class="relative flex flex-col md:flex-row border p-6 md:p-8 rounded-2xl shadow-xl bg-black/50">
+        <div class="text-white space-y-4 md:space-y-6 w-full md:w-4/5">
+          <h1 class="jobTitle text-xl md:text-2xl font-bold truncate">Mobile First Corp</h1>
+          <p class="jobType opacity-80 truncate">React Native Developer</p>
+          <p class="workType opacity-80 truncate">Remote <span> • </span> Full-time <span> • </span>$130,000 - $175,000</p>
+          <p class="status p-2 px-3 font-bold text-black bg-gray-400 rounded-md w-fit">NOT APPLIED</p>
           <p class="jobDescription opacity-80 line-clamp-3 md:line-clamp-5">Build cross-platform mobile applications using React Native. Work on
             products used by
  millions worldwide.</p>
@@ -75,19 +76,19 @@
               class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
           </div>
         </div>
-        <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+        <div class="deleteBtn absolute top-4 right-4 text-3xl md:text-5xl text-red-500 hover:scale-105 transition">
           <i class="fa-regular fa-trash-can"></i>
         </div>
       </div>
 
       <!-- Applicaion 2  -->
-      <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
-        <div class="text-white space-y-6 line-clamp-9 md:line-clamp-9">
-          <h1 class="jobTitle text-2xl font-bold ">TechNova Solutions</h1>
-          <p class="jobType opacity-80">Frontend Developer</p>
-          <p class="workType opacity-80">New York, USA <span> • </span> Full-time <span> • </span>$90,000 - $120,000</p>
-          <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md sm:mr-100 lg:mr-160  md:p-1 md:py-1 md:mr-90 ">NOT APPLIED</p>
-          <p class="jobDescription opacity-80">Develop modern user interfaces using HTML, CSS, JavaScript, and React.
+      <div class="relative flex flex-col md:flex-row border p-6 md:p-8 rounded-2xl shadow-xl bg-black/50">
+        <div class="text-white space-y-4 md:space-y-6 w-full md:w-4/5">
+          <h1 class="jobTitle text-xl md:text-2xl font-bold truncate">TechNova Solutions</h1>
+          <p class="jobType opacity-80 truncate">Frontend Developer</p>
+          <p class="workType opacity-80 truncate">New York, USA <span> • </span> Full-time <span> • </span>$90,000 - $120,000</p>
+          <p class="status p-2 px-3 font-bold text-black bg-gray-400 rounded-md w-fit">NOT APPLIED</p>
+          <p class="jobDescription opacity-80 line-clamp-3 md:line-clamp-5">Develop modern user interfaces using HTML, CSS, JavaScript, and React.
           </p>
           <div class="flex gap-6">
             <button
@@ -96,19 +97,19 @@
               class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
           </div>
         </div>
-        <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+        <div class="deleteBtn absolute top-4 right-4 text-3xl md:text-5xl text-red-500 hover:scale-105 transition">
           <i class="fa-regular fa-trash-can"></i>
         </div>
       </div>
 
       <!-- Applicaion 3  -->
-      <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
-        <div class="text-white space-y-6 line-clamp-9 md:line-clamp-9">
-          <h1 class="jobTitle text-2xl font-bold ">AI Labs</h1>
-          <p class="jobType opacity-80">Machine Learning Engineer</p>
-          <p class="workType opacity-80">Toronto, Canada <span> • </span> Full-time <span> • </span>$120,000 - $240,000</p>
-          <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md sm:mr-100 lg:mr-160  md:p-1 md:py-1 md:mr-90 ">NOT APPLIED</p>
-          <p class="jobDescription opacity-80">Build and optimize machine learning models for real-world solutions.
+      <div class="relative flex flex-col md:flex-row border p-6 md:p-8 rounded-2xl shadow-xl bg-black/50">
+        <div class="text-white space-y-4 md:space-y-6 w-full md:w-4/5">
+          <h1 class="jobTitle text-xl md:text-2xl font-bold truncate">AI Labs</h1>
+          <p class="jobType opacity-80 truncate">Machine Learning Engineer</p>
+          <p class="workType opacity-80 truncate">Toronto, Canada <span> • </span> Full-time <span> • </span>$120,000 - $240,000</p>
+          <p class="status p-2 px-3 font-bold text-black bg-gray-400 rounded-md w-fit">NOT APPLIED</p>
+          <p class="jobDescription opacity-80 line-clamp-3 md:line-clamp-5">Build and optimize machine learning models for real-world solutions.
           </p>
           <div class="flex gap-6">
             <button
@@ -117,18 +118,18 @@
               class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
           </div>
         </div>
-        <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+        <div class="deleteBtn absolute top-4 right-4 text-3xl md:text-5xl text-red-500 hover:scale-105 transition">
           <i class="fa-regular fa-trash-can"></i>
         </div>
       </div>
       <!-- Applicaion 4  -->
-      <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
-        <div class="text-white space-y-6 line-clamp-9 md:line-clamp-9">
-          <h1 class="jobTitle text-2xl font-bold ">DataWave Systems</h1>
-          <p class="jobType opacity-80">Data Analyst</p>
-          <p class="workType opacity-80">Sydney, Australia <span> • </span> Full-time <span> • </span>$70,000 - $140,000</p>
-          <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md sm:mr-100 lg:mr-160  md:p-1 md:py-1 md:mr-90 ">NOT APPLIED</p>
-          <p class="jobDescription opacity-80">BAnalyze datasets and generate insights to support business decisions.
+      <div class="relative flex flex-col md:flex-row border p-6 md:p-8 rounded-2xl shadow-xl bg-black/50">
+        <div class="text-white space-y-4 md:space-y-6 w-full md:w-4/5">
+          <h1 class="jobTitle text-xl md:text-2xl font-bold truncate ">DataWave Systems</h1>
+          <p class="jjobType opacity-80 truncate">Data Analyst</p>
+          <p class="workType opacity-80 truncate">Sydney, Australia <span> • </span> Full-time <span> • </span>$70,000 - $140,000</p>
+          <p class="status p-2 px-3 font-bold text-black bg-gray-400 rounded-md w-fit">NOT APPLIED</p>
+          <p class="jobDescription opacity-80 line-clamp-3 md:line-clamp-5">BAnalyze datasets and generate insights to support business decisions.
           </p>
           <div class="flex gap-6">
             <button
@@ -137,19 +138,19 @@
               class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
           </div>
         </div>
-        <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+        <div class="deleteBtn absolute top-4 right-4 text-3xl md:text-5xl text-red-500 hover:scale-105 transition">
           <i class="fa-regular fa-trash-can"></i>
         </div>
       </div>
      
       <!-- Applicaion 5  -->
-      <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
-        <div class="text-white space-y-6 line-clamp-9 md:line-clamp-9">
-          <h1 class="jobTitle text-2xl font-bold ">DesignPro Studio</h1>
-          <p class="jobType opacity-80">UI/UX Designer</p>
-          <p class="workType opacity-80">Berlin, Germany <span> • </span> Full-time <span> • </span>$60,000 - $120,000</p>
-          <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md sm:mr-100 lg:mr-160  md:p-1 md:py-1 md:mr-90 ">NOT APPLIED</p>
-          <p class="jobDescription opacity-80">Create intuitive designs and improve user experience across platforms.
+      <div class="relative flex flex-col md:flex-row border p-6 md:p-8 rounded-2xl shadow-xl bg-black/50">
+        <div class="text-white space-y-4 md:space-y-6 w-full md:w-4/5">
+          <h1 class="jobTitle text-xl md:text-2xl font-bold truncate">DesignPro Studio</h1>
+          <p class="jobType opacity-80 truncate">UI/UX Designer</p>
+          <p class="workType opacity-80 truncate">Berlin, Germany <span> • </span> Full-time <span> • </span>$60,000 - $120,000</p>
+          <p class="status p-2 px-3 font-bold text-black bg-gray-400 rounded-md w-fit">NOT APPLIED</p>
+          <p class="jobDescription opacity-80 line-clamp-3 md:line-clamp-5">Create intuitive designs and improve user experience across platforms.
           </p>
           <div class="flex gap-6">
             <button
@@ -158,18 +159,18 @@
               class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
           </div>
         </div>
-        <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+        <div class="deleteBtn absolute top-4 right-4 text-3xl md:text-5xl text-red-500 hover:scale-105 transition">
           <i class="fa-regular fa-trash-can"></i>
         </div>
       </div>
       <!-- Applicaion 6  -->
-    <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
-      <div class="text-white space-y-6 line-clamp-9 md:line-clamp-9">
-        <h1 class="jobTitle text-2xl font-bold ">NextGen Games</h1>
-        <p class="jobType opacity-80">Game Developer</p>
-        <p class="workType opacity-80">Tokyo, Japan <span> • </span> Full-time <span> • </span>$90,000 - $120,000</p>
-        <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md sm:mr-100 lg:mr-160  md:p-1 md:py-1 md:mr-90 ">NOT APPLIED</p>
-        <p class="jobDescription opacity-80">Develop interactive games using modern engines and collaborate with creative teams.
+    <div class="relative flex flex-col md:flex-row border p-6 md:p-8 rounded-2xl shadow-xl bg-black/50">
+      <div class="text-white space-y-4 md:space-y-6 w-full md:w-4/5">
+        <h1 class="jobTitle text-xl md:text-2xl font-bold truncate">NextGen Games</h1>
+        <p class="jobType opacity-80 truncate">Game Developer</p>
+        <p class="workType opacity-80 truncate">Tokyo, Japan <span> • </span> Full-time <span> • </span>$90,000 - $120,000</p>
+        <p class="status p-2 px-3 font-bold text-black bg-gray-400 rounded-md w-fit">NOT APPLIED</p>
+        <p class="jobDescription opacity-80 line-clamp-3 md:line-clamp-5">Develop interactive games using modern engines and collaborate with creative teams.
         </p>
         <div class="flex gap-6">
           <button
@@ -178,18 +179,18 @@
             class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
         </div>
       </div>
-      <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+      <div class="deleteBtn absolute top-4 right-4 text-3xl md:text-5xl text-red-500 hover:scale-105 transition">
         <i class="fa-regular fa-trash-can"></i>
       </div>
     </div>
       <!-- Applicaion 7  -->
-      <div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
-        <div class="text-white space-y-6 line-clamp-9 md:line-clamp-9">
-          <h1 class="jobTitle text-2xl font-bold ">CloudSync Ltd</h1>
-          <p class="jobType opacity-80">Backend Engineer</p>
-          <p class="workType opacity-80">London, UK <span> • </span> Full-time <span> • </span>$80,000 - $110,000</p>
-          <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md sm:mr-100 lg:mr-160  md:p-1 md:py-1 md:mr-90 ">NOT APPLIED</p>
-          <p class="jobDescription opacity-80">Design APIs, manage databases, and maintain server logic using Node.js.
+      <div class="relative flex flex-col md:flex-row border p-6 md:p-8 rounded-2xl shadow-xl bg-black/50">
+        <div class="text-white space-y-4 md:space-y-6 w-full md:w-4/5">
+          <h1 class="jobTitle text-xl md:text-2xl font-bold truncate">CloudSync Ltd</h1>
+          <p class="jobType opacity-80 truncate">Backend Engineer</p>
+          <p class="workType opacity-80 truncate">London, UK <span> • </span> Full-time <span> • </span>$80,000 - $110,000</p>
+          <p class="status p-2 px-3 font-bold text-black bg-gray-400 rounded-md w-fit">NOT APPLIED</p>
+          <p class="jobDescription opacity-80 line-clamp-3 md:line-clamp-5">Design APIs, manage databases, and maintain server logic using Node.js.
           </p>
           <div class="flex gap-6">
             <button
@@ -198,19 +199,19 @@
               class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
           </div>
         </div>
-        <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+        <div class="deleteBtn absolute top-4 right-4 text-3xl md:text-5xl text-red-500 hover:scale-105 transition">
           <i class="fa-regular fa-trash-can"></i>
         </div>
       </div>
       <!-- Applicaion 8  -->
      
-<div class="flex justify-between border-3 p-8 rounded-2xl shadow-xl mt-5">
-  <div class="text-white space-y-6  line-clamp-9 md:line-clamp-9">
-    <h1 class="jobTitle text-2xl font-bold ">CyberSecure Inc</h1>
-    <p class="jobType opacity-80">Security Analyst</p>
-    <p class="workType opacity-80">Remoten <span> • </span> Full-time <span> • </span>$90,000 - $120,000</p>
-    <p class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md sm:mr-100 lg:mr-160  md:p-1 md:py-1 md:mr-90 ">NOT APPLIED</p>
-    <p class="jobDescription opacity-80">Monitor threats, test vulnerabilities, and protect system infrastructure.
+<div class="relative flex flex-col md:flex-row border p-6 md:p-8 rounded-2xl shadow-xl bg-black/50">
+  <div class="text-white space-y-4 md:space-y-6 w-full md:w-4/5">
+    <h1 class="jobTitle text-xl md:text-2xl font-bold truncate">CyberSecure Inc</h1>
+    <p class="jobType opacity-80 truncate">Security Analyst</p>
+    <p class="workType opacity-80 truncate">Remoten <span> • </span> Full-time <span> • </span>$90,000 - $120,000</p>
+    <p class="status p-2 px-3 font-bold text-black bg-gray-400 rounded-md w-fit">NOT APPLIED</p>
+    <p class="jobDescription opacity-80 line-clamp-3 md:line-clamp-5">Monitor threats, test vulnerabilities, and protect system infrastructure.
     </p>
     <div class="flex gap-6">
       <button
@@ -219,7 +220,7 @@
         class="rejected-btn border-2 p-2 px-6 font-bold text-red-600 border-red-400 transition-all duration-100 hover:scale-105">REJECTED</button>
     </div>
   </div>
-  <div class="deleteBtn text-5xl text-red-500  transition-all duration-100 hover:scale-105 ">
+  <div class="deleteBtn absolute top-4 right-4 text-3xl md:text-5xl text-red-500 hover:scale-105 transition">
     <i class="fa-regular fa-trash-can"></i>
   </div>
 </div>

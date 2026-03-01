@@ -36,6 +36,7 @@ interviewFilter.addEventListener('click', function () {
 
   rejectedFilterBtn.classList.add("bg-black/50");
   rejectedFilterBtn.classList.remove("bg-blue-600");
+  
 
    allApplicationSection.classList.add("hidden")
   renderInterview()
@@ -134,7 +135,12 @@ if (event.target.classList.contains("interview-btn")) {
     });
   }
 
-  parentNode.querySelector(".status").innerText = "Applied";
+  const statusEl = parentNode.querySelector(".status");
+
+statusEl.innerText = "Interview";
+statusEl.classList.remove("bg-red-400", "bg-blue-200", "bg-gray-400");
+statusEl.classList.add("bg-green-400");
+
 
   if (currentFilter !== "All") {
     renderInterview();
@@ -167,7 +173,11 @@ if (event.target.classList.contains("interview-btn")) {
     });
   }
 
-  parentNode.querySelector(".status").innerText = "Rejected";
+  const statusEl = parentNode.querySelector(".status");
+
+statusEl.innerText = "Rejected";
+statusEl.classList.remove("bg-green-400", "bg-blue-200");
+statusEl.classList.add("bg-red-400");
 
   if (currentFilter !== "All") {
     renderRejected();
@@ -221,13 +231,13 @@ function renderInterview() {
   }
   for (let render of interviewList) {
     let div = document.createElement("div");
-    div.className ="flex justify-between border-3 p-8 rounded-2xl shadow-xl"
+    div.className ="flex flex-col md:flex-row justify-between border p-6 md:p-8 rounded-2xl shadow-xl bg-black/50"
     div.innerHTML = `
-    <div class="text-white space-y-6 ">
-          <h1 class="jobTitle text-2xl font-bold ">${render.jobTitle}</h1>
+    <div class="text-white space-y-4 md:space-y-6 w-full md:w-4/5 ">
+          <h1 class="jobTitle text-xl md:text-2xl font-bold ">${render.jobTitle}</h1>
           <p class="jobType opacity-80">${render.jobType}</p>
           <p class="workType opacity-80">${render.workType}</p>
-          <p  class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">${render.status}</p>
+          <p  class="status p-2 px-3 font-bold text-black bg-green-400 rounded-md w-fit">${render.status}</p>
           <p class="jobDescription opacity-80">${render.jobDescription}</p>
           <div class="flex gap-6">
             <button
@@ -252,13 +262,13 @@ function renderRejected() {
   for (let reject of rejectedList) {
     
     let div = document.createElement("div");
-    div.className ="flex justify-between border-3 p-8 rounded-2xl shadow-xl"
+    div.className ="flex flex-col md:flex-row justify-between border p-6 md:p-8 rounded-2xl shadow-xl bg-black/50"
     div.innerHTML = `
-    <div class="text-white space-y-6 ">
-          <h1 class="jobTitle text-2xl font-bold ">${reject.jobTitle}</h1>
+    <div class="text-white space-y-4 md:space-y-6 w-full md:w-4/5 ">
+          <h1 class="jobTitle text-xl md:text-2xl font-bold">${reject.jobTitle}</h1>
           <p class="jobType opacity-80">${reject.jobType}</p>
           <p class="workType opacity-80">${reject.workType}</p>
-          <p  class="status mr-170 p-2 px-2  font-bold text-black bg-blue-200 rounded-md">${reject.status}</p>
+          <p  class="status p-2 px-3 font-bold text-black bg-red-400 rounded-md w-fit">${reject.status}</p>
           <p class="jobDescription opacity-80">${reject.jobDescription}</p>
           <div class="flex gap-6">
             <button
